@@ -8,13 +8,20 @@ setInterval(() => {
 // Simulate loading code in the terminal
 const codeElement = document.getElementById('code');
 const codeLines = [
-    'Initializing system...',
-    'Accessing mainframe...',
-    'Bypassing firewall...',
+    'LOHH BUT MO PININDOT...',
+    'HALAKA...',
+    'SUS BALA KADYAN HACK KITA...',
     'Decrypting data...',
+    'Prepairing to crack',
+    'Facebook account password',
+    'Username initializing',
     'Establishing connection...',
     'Loading user data...',
     'Access granted!',
+    'CHAROT LANG BOSS',
+    'ILOVEYOU MWAHH',
+    'NYAHAHAHAHA',
+    'KILIG KA NANAMAN',
 ];
 
 let line = 0;
