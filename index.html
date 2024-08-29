@@ -3,19 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker Emulator</title>
+    <title>Hacker Dashboard</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="terminal">
-        <div class="header">
-            <span class="title">h4ck3r_t3rm1n4l@root:~$</span>
+    <div class="container">
+        <div class="terminal">
+            <h1>Hacker Terminal</h1>
+            <div class="console">
+                <pre id="code">
+Loading...
+</pre>
+            </div>
         </div>
-        <div class="content">
-            <p class="command">Loading...</p>
+        <div class="stats">
+            <h2>System Stats</h2>
+            <div class="stats-box">
+                <div class="stat">
+                    <span>CPU Usage:</span>
+                    <span id="cpu">35%</span>
+                </div>
+                <div class="stat">
+                    <span>Memory Usage:</span>
+                    <span id="memory">68%</span>
+                </div>
+                <div class="stat">
+                    <span>Network Traffic:</span>
+                    <span id="network">124 MB/s</span>
+                </div>
+            </div>
         </div>
-        <input type="text" class="input" autofocus>
     </div>
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
