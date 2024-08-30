@@ -7,19 +7,24 @@
     <style>
         body {
             background-color: black;
-            color: green;
+            color: #00ff00;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
             margin: 0;
             padding: 20px;
             overflow: hidden;
         }
 
-        .terminal {
-            width: 100%;
+        #terminal {
             height: 100vh;
             white-space: pre-wrap;
             overflow: hidden;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .line {
+            margin: 0;
+            padding: 0;
         }
 
         .blink {
@@ -30,35 +35,76 @@
             50% { opacity: 0; }
         }
 
-        .scroll {
-            animation: scroll 20s linear infinite;
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
-        @keyframes scroll {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(-100%); }
+        .flicker {
+            animation: flicker 0.1s infinite;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="terminal">
-        <div class="scroll">
-            <p>Initializing system...</p>
-            <p>Loading modules...</p>
-            <p>Accessing mainframe...</p>
-            <p>Retrieving secure data...</p>
-            <p>Bypassing security protocols...</p>
-            <p>Decrypting files...</p>
-            <p>Access granted!</p>
-            <p>Uploading virus.exe...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>Unauthorized access detected!</p>
-            <p>Warning: Firewall breach!</p>
-            <p>System shutdown imminent!</p>
-            <p>Error: System overload!</p>
-            <p class="blink">_</p>
-        </div>
+    <div id="terminal">
+        <p class="line blink">_</p>
     </div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const commands = [
+            "Initializing cyber attack sequence...",
+            "Establishing connection to remote server...",
+            "Remote server accessed: 192.168.1.1",
+            "Bypassing firewall...",
+            "Access granted to server root...",
+            "Injecting payload...",
+            "Payload deployed: Encrypting data...",
+            "Downloading confidential files...",
+            "Transfer complete. Files stored at C:\\hacked\\",
+            "Cleaning up logs...",
+            "Disabling security protocols...",
+            "Triggering system reboot...",
+            "ERROR: System malfunction detected!",
+            "Critical failure! Attempting to recover...",
+            "SYSTEM OVERRIDE INITIATED!",
+            "Self-destruct sequence activated...",
+            "Warning: Total data loss imminent!",
+            "Shutdown in 3... 2... 1..."
+        ];
+
+        let index = 0;
+        const delay = 100; // delay between characters
+        const lineDelay = 2000; // delay between lines
+
+        function typeCommand(command, callback) {
+            let i = 0;
+            const interval = setInterval(() => {
+                terminal.insertAdjacentHTML('afterbegin', `<p class="line">${command.slice(0, i + 1)}</p>`);
+                i++;
+                if (i === command.length) {
+                    clearInterval(interval);
+                    callback();
+                }
+            }, delay);
+        }
+
+        function executeCommands() {
+            if (index < commands.length) {
+                typeCommand(commands[index], () => {
+                    index++;
+                    setTimeout(executeCommands, lineDelay);
+                });
+            } else {
+                terminal.insertAdjacentHTML('afterbegin', `<p class="line flicker">System failure. Please contact administrator.</p>`);
+            }
+        }
+
+        executeCommands();
+    </script>
 </body>
 </html>
