@@ -3,38 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WAG PIPINDUTIN</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Hacker Prank</title>
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .terminal {
+            width: 100%;
+            height: 100vh;
+            white-space: pre-wrap;
+            overflow: hidden;
+        }
+
+        .blink {
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .scroll {
+            animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="terminal">
-            <h1>LOHH PININDOT NGA</h1>
-            <div class="console">
-                <pre id="code">
-Loading...
-</pre>
-            </div>
-        </div>
-        <div class="stats">
-            <h2>System Stats</h2>
-            <div class="stats-box">
-                <div class="stat">
-                    <span>CPU Usage:</span>
-                    <span id="cpu">35%</span>
-                </div>
-                <div class="stat">
-                    <span>Memory Usage:</span>
-                    <span id="memory">68%</span>
-                </div>
-                <div class="stat">
-                    <span>Network Traffic:</span>
-                    <span id="network">124 MB/s</span>
-                </div>
-            </div>
+    <div class="terminal">
+        <div class="scroll">
+            <p>Initializing system...</p>
+            <p>Loading modules...</p>
+            <p>Accessing mainframe...</p>
+            <p>Retrieving secure data...</p>
+            <p>Bypassing security protocols...</p>
+            <p>Decrypting files...</p>
+            <p>Access granted!</p>
+            <p>Uploading virus.exe...</p>
+            <p>...</p>
+            <p>...</p>
+            <p>Unauthorized access detected!</p>
+            <p>Warning: Firewall breach!</p>
+            <p>System shutdown imminent!</p>
+            <p>Error: System overload!</p>
+            <p class="blink">_</p>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
-        </html>
-        
+</html>
