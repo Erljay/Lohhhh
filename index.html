@@ -3,168 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker Prank</title>
+    <title>GCash Dashboard Simulator</title>
     <style>
         body {
-            background-color: black;
-            color: #00ff00;
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 20px;
-            overflow: hidden;
-        }
-
-        #terminal {
-            height: 100vh;
-            white-space: pre-wrap;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column-reverse;
-        }
-
-        .line {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-        }
-
-        .blink {
-            animation: blink 1s step-start infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        @keyframes flicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .flicker {
-            animation: flicker 0.1s infinite;
-        }
-
-        .hidden {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-    <div id="terminal">
-        <p class="line blink">_</p>
-    </div>
-
-    <script>
-        const terminal = document.getElementById('terminal');
-        const commands = [
-            "Initializing cyber attack sequence...",
-            "Establishing connection to remote server...",
-            "Remote server accessed: 192.168.1.1",
-            "Bypassing firewall...",
-            "Access granted to server root...",
-            "Injecting payload...",
-            "Payload deployed: Encrypting data...",
-            "Downloading confidential files...",
-            "Transfer complete. Files stored at C:\\hacked\\",
-            "Cleaning up logs...",
-            "Disabling security protocols...",
-            "Triggering system reboot...",
-            "ERROR: System malfunction detected!",
-            "Critical failure! Attempting to recover...",
-            "SYSTEM OVERRIDE INITIATED!",
-            "Self-destruct sequence activated...",
-            "Warning: Total data loss imminent!",
-            "Shutdown in 3... 2... 1..."
-        ];
-
-        let index = 0;
-        const delay = 100; // delay between characters
-        const lineDelay = 2000; // delay between lines
-
-        function typeCommand(command, callback) {
-            let i = 0;
-            const interval = setInterval(() => {
-                terminal.insertAdjacentHTML('afterbegin', `<p class="line">${command.slice(0, i + 1)}</p>`);
-                i++;
-                if (i === command.length) {
-                    clearInterval(interval);
-                    callback();
-                }
-            }, delay);
-        }
-
-        function executeCommands() {
-            if (index < commands.length) {
-                typeCommand(commands[index], () => {
-                    index++;
-                    setTimeout(executeCommands, lineDelay);
-                });
-            } else {
-                terminal.insertAdjacentHTML('afterbegin', `<p class="line flicker">System failure. Please contact administrator.</p>`);
-            }
-        }
-
-        executeCommands()
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker Prank</title>
-    <style>
-        body {
-            background-color: black;
-            color: green;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
-            margin: 0;
-            padding: 20px;
-            overflow: hidden;
-        }
-
-        .terminal {
-            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
-            white-space: pre-wrap;
-            overflow: hidden;
         }
-
-        .blink {
-            animation: blink 1s step-start infinite;
+        .dashboard-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
         }
-
-        @keyframes blink {
-            50% { opacity: 0; }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
-
-        .scroll {
-            animation: scroll 20s linear infinite;
+        .header h1 {
+            color: #007bff;
+            font-size: 24px;
+            margin: 0;
         }
-
-        @keyframes scroll {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(-100%); }
+        .balance {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .balance h2 {
+            font-size: 18px;
+            color: #555;
+            margin: 0;
+        }
+        .balance p {
+            font-size: 36px;
+            color: #28a745;
+            margin: 5px 0;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .actions button {
+            width: 48%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .actions button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="terminal">
-        <div class="scroll">
-            <p>Initializing system...</p>
-            <p>Loading modules...</p>
-            <p>Accessing mainframe...</p>
-            <p>Retrieving secure data...</p>
-            <p>Bypassing security protocols...</p>
-            <p>Decrypting files...</p>
-            <p>Access granted!</p>
-            <p>Uploading virus.exe...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>Unauthorized access detected!</p>
-            <p>Warning: Firewall breach!</p>
-            <p>System shutdown imminent!</p>
-            <p>Error: System overload!</p>
-            <p class="blink">_</p>
-        </div>
+
+<div class="dashboard-container">
+    <div class="header">
+        <h1>GCash</h1>
+        <p>Hi, User!</p>
     </div>
+
+    <div class="balance">
+        <h2>Your Balance</h2>
+        <p>₱16,000.00</p>
+    </div>
+
+    <div class="actions">
+        <button>Send Money</button>
+        <button>Pay Bills</button>
+    </div>
+
+    <div class="actions">
+        <button>Buy Load</button>
+        <button>Cash In</button>
+    </div>
+</div>
+
 </body>
 </html>
