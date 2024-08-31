@@ -3,150 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GCash Dashboard Simulator</title>
+    <title>GCash Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            background-color: #0077CC;
+            color: #FFFFFF;
+            text-align: center;
             margin: 0;
             padding: 0;
         }
-        .navbar {
-            background-color: #007bff;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-size: 24px;
-        }
-        .dashboard-container {
+        .container {
+            width: 100%;
             max-width: 400px;
-            margin: 20px auto;
+            margin: auto;
             padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #0077CC;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
         .balance {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .balance h2 {
-            font-size: 18px;
-            color: #555;
-            margin: 0;
-        }
-        .balance p {
             font-size: 36px;
-            color: #28a745;
-            margin: 5px 0;
-        }
-        .quick-actions {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        .quick-actions button {
-            width: 48%;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .quick-actions button:hover {
-            background-color: #0056b3;
-        }
-        .services {
-            margin-bottom: 20px;
-        }
-        .services button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-        .services button:hover {
-            background-color: #0056b3;
-        }
-        .transaction-history {
-            margin-bottom: 20px;
-        }
-        .transaction-history h3 {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 10px;
-        }
-        .transaction-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            background-color: #f9f9f9;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        .transaction-item p {
-            margin: 0;
-            font-size: 14px;
-            color: #333;
-        }
-        .transaction-item .amount {
-            color: #28a745;
             font-weight: bold;
+        }
+        .balance-amount {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .option {
+            text-align: center;
+            font-size: 14px;
+        }
+        .option img {
+            width: 50px;
+            height: 50px;
         }
     </style>
 </head>
 <body>
-
-<div class="navbar">
-    GCash
-</div>
-
-<div class="dashboard-container">
-    <div class="balance">
-        <h2>Your Balance</h2>
-        <p>₱16,458.00</p>
-    </div>
-
-    <div class="quick-actions">
-        <button>Send Money</button>
-        <button>Pay Bills</button>
-    </div>
-
-    <div class="quick-actions">
-        <button>Buy Load</button>
-        <button>Cash In</button>
-    </div>
-
-    <div class="services">
-        <button>Bank Transfer</button>
-        <button>GCash Forest</button>
-        <button>Invest Money</button>
-        <button>Insurance</button>
-    </div>
-
-    <div class="transaction-history">
-        <h3>Recent Transactions</h3>
-        <div class="transaction-item">
-            <p>Send Money to John</p>
-            <p class="amount">-₱500.00</p>
-        </div>
-        <div class="transaction-item">
-            <p>Pay Bills: Meralco</p>
-            <p class="amount">-₱1,200.00</p>
-        </div>
-        <div class="transaction-item">
-            <p>Buy Load: Globe</p>
-            <p class="amount">-₱150.00</p>
+    <div class="container">
+        <div class="header">GCash</div>
+        <div class="balance">PHP</div>
+        <div class="balance-amount">16,458.00</div>
+        <div class="options">
+            <div class="option">
+                <img src="https://via.placeholder.com/50x50" alt="Cash In">
+                <div>Cash In</div>
+            </div>
+            <div class="option">
+                <img src="https://via.placeholder.com/50x50" alt="Send Money">
+                <div>Send Money</div>
+            </div>
+            <div class="option">
+                <img src="https://via.placeholder.com/50x50" alt="GSave">
+                <div>GSave</div>
+            </div>
+            <div class="option">
+                <img src="https://via.placeholder.com/50x50" alt="Buy Load">
+                <div>Buy Load</div>
+            </div>
         </div>
     </div>
-</div>
-
 </body>
 </html>
