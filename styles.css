@@ -1,42 +1,115 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background: #1c1c1c;
+    color: #f0f0f0;
+    overflow: hidden;
 }
 
-header {
-    background: #333;
-    color: #fff;
+.container {
     text-align: center;
-    padding: 2rem;
+    padding: 20px;
+}
+
+.banner {
+    margin-top: 50px;
 }
 
 h1 {
+    font-size: 3em;
     margin: 0;
+    letter-spacing: 3px;
+}
+
+p {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.animation {
+    position: relative;
+    margin-top: 50px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.titan {
+    position: absolute;
+    width: 100px;
+    height: 300px;
+    background: linear-gradient(45deg, #9e4d34, #d8603b);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: titanAttack 3s infinite linear;
+}
+
+@keyframes titanAttack {
+    0% {
+        transform: translateX(-50%) scaleX(1);
+    }
+    50% {
+        transform: translateX(-50%) scaleX(1.2);
+    }
+    100% {
+        transform: translateX(-50%) scaleX(1);
+    }
+}
+
+.cloud {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(180deg, #e0e0e0, #c0c0c0);
+    border-radius: 50%;
+    top: 20%;
+    left: 0;
+    animation: moveClouds 10s infinite linear;
+}
+
+.cloud.reverse {
+    top: 50%;
+    right: 0;
+    left: auto;
+    animation: moveCloudsReverse 12s infinite linear;
+}
+
+@keyframes moveClouds {
+    0% {
+        left: -200px;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes moveCloudsReverse {
+    0% {
+        right: -200px;
+    }
+    100% {
+        right: 100%;
+    }
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #f03d4e;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #c03140;
 }
 
 #countdown {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-#timer {
-    font-size: 2rem;
+    margin-top: 20px;
+    font-size: 2em;
     font-weight: bold;
-}
-
-#details {
-    padding: 2rem;
-    text-align: center;
-}
-
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }
