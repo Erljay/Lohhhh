@@ -4,25 +4,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attack on Titan: Last Attack</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #1c1c1c;
+            color: #f0f0f0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .banner {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 0;
+            letter-spacing: 3px;
+            color: #f03d4e;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .animation {
+            position: relative;
+            height: 300px;
+            width: 100%;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #2c3e50, #1c1c1c);
+        }
+
+        .titan {
+            position: absolute;
+            width: 100px;
+            height: 300px;
+            background: linear-gradient(45deg, #9e4d34, #d8603b);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: titanAttack 3s infinite linear;
+            border-radius: 20% 20% 0 0;
+        }
+
+        @keyframes titanAttack {
+            0% {
+                transform: translateX(-50%) scaleX(1);
+            }
+            50% {
+                transform: translateX(-50%) scaleX(1.2);
+            }
+            100% {
+                transform: translateX(-50%) scaleX(1);
+            }
+        }
+
+        .cloud {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background: linear-gradient(180deg, #e0e0e0, #c0c0c0);
+            border-radius: 50%;
+            top: 20%;
+            left: 0;
+            animation: moveClouds 10s infinite linear;
+            filter: blur(4px);
+        }
+
+        .cloud.reverse {
+            top: 50%;
+            right: 0;
+            left: auto;
+            animation: moveCloudsReverse 12s infinite linear;
+        }
+
+        @keyframes moveClouds {
+            0% {
+                left: -200px;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes moveCloudsReverse {
+            0% {
+                right: -200px;
+            }
+            100% {
+                right: 100%;
+            }
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #f03d4e;
+            border: none;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #c03140;
+        }
+
+        #countdown {
+            margin-top: 20px;
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="banner">
-            <h1>Attack on Titan: Last Attack</h1>
-            <p>Join us on September 8th for the final battle!</p>
-        </div>
-        
-        <div class="animation">
-            <div class="titan"></div>
-            <div class="cloud"></div>
-            <div class="cloud reverse"></div>
-        </div>
-        
-        <button id="countdownBtn">Countdown to Last Attack</button>
-        <div id="countdown"></div>
+    <div class="banner">
+        <h1>Attack on Titan: Last Attack</h1>
+        <p>Join us on September 8th for the final battle!</p>
     </div>
 
-    <script src="script.js"></script>
+    <div class="animation">
+        <div class="titan"></div>
+        <div class="cloud"></div>
+        <div class="cloud reverse"></div>
+    </div>
+
+    <button id="countdownBtn">Countdown to Last Attack</button>
+    <div id="countdown"></div>
+
+    <script>
+        document.getElementById('countdownBtn').addEventListener('click', function() {
+            const eventDate = new Date('2024-09-08T00:00:00').getTime();
+
+            const countdownInterval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = 
+                    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById('countdown').innerHTML = "The Last Attack has begun!";
+                }
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
